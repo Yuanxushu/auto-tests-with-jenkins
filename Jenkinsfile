@@ -1,10 +1,10 @@
 pipeline {
-    agent { docker { image 'python:3.7' } }
+    agent any
     stages {
         stage('build') {
             steps {
                 sh """
-                    pip install -r requirements.txt
+                    pip install -r requirements.txt > installations.log
                 """
                 sh 'pytest'
             }
